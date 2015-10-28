@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   resources :users
+  namespace :supervisor do
+    resources :subjects
+  end
+  resources :subjects, only: [:index, :show]
 end

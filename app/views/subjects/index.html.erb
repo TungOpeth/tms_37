@@ -1,0 +1,8 @@
+<% provide(:title, t(:all_subject))%>
+<div id="filterrific_results">
+  <ul class="subject">
+    <%= will_paginate %>
+    <%= render @subjects%>
+    <%= will_paginate %>
+  </ul>
+</div>

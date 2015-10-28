@@ -1,0 +1,14 @@
+<% provide(:title, @subject.name) %>
+<h1>
+  <%= @subject.name %> </br>
+</h1>
+<h2>
+  <%= @subject.instruction %> </br>
+</h2>
+
+Task belong
+<h2>
+  <% @tasks.each do |task| %>
+    <%= task.name %> </br>
+  <% end %>
+</h2>
