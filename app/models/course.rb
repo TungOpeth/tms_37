@@ -1,5 +1,4 @@
 class Course < ActiveRecord::Base
-
   has_many :user_courses, dependent: :destroy
   has_many :course_subjects, dependent: :destroy
   has_many :users, through: :user_courses, dependent: :destroy
@@ -8,6 +7,8 @@ class Course < ActiveRecord::Base
   scope :recent, ->{order created_at: :desc}
 
   validates :name, presence: true
+  validates :instruction, presence: true, length: { maximum: 400 }
+  accepts_nested_attributes_for :course_subjects
 
   def date_duration
     self.subjects.inject(0){|total_date, subject| total_date + subject.date_duration}
