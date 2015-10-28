@@ -1,0 +1,5 @@
+<li>
+  <%= link_to subject.name, supervisor_subject_path(subject) %>
+    | <%= link_to t(:delete), supervisor_subject_path(subject), method: :delete, 
+                   			data: { confirm: t(:you_sure) } %>
+</li>

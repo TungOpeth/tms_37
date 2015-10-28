@@ -21,3 +21,13 @@
 
 en:
   hello: "Hello world"
+  title: "TMS 37"
+  subject: "subject"
+  delete: "delete"
+  you_sure: "Are you sure ?"
+  subject_deleted: "Subject deleted"
+  create_subject_success: "subject created success"
+  creat_subject: "creat subject"
+  all_subject: "All subjects"
+  remove: "remove"
+  Add_Tasks: "Add Tasks"

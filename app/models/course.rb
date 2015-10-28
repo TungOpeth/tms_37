@@ -1,5 +1,4 @@
 class Course < ActiveRecord::Base
-  include Logs
 
   has_many :user_courses, dependent: :destroy
   has_many :course_subjects, dependent: :destroy
@@ -7,11 +6,8 @@ class Course < ActiveRecord::Base
   has_many :subjects, through: :course_subjects, dependent: :destroy
   has_many :tasks, through: :subjects
   scope :recent, ->{order created_at: :desc}
-  scope :active_course, ->{where "closed = ?", Settings.courses.active}
 
-  validates :name, presence: Settings.courses.is_present,
-    length: {minimum: Settings.courses.min_c, maximum: Settings.courses.max_c}
-  before_create {self.closed = true}
+  validates :name, presence: true
 
   def date_duration
     self.subjects.inject(0){|total_date, subject| total_date + subject.date_duration}
