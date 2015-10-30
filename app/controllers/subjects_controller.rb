@@ -2,7 +2,7 @@ class SubjectsController < ApplicationController
   before_action :init_course, only: [:show, :update]
   before_action :init_user_subject, only: [:show, :update]
   before_action :init_course_subject, only: [:show, :update]
-  load_and_authorize_resource :course
+  load_and_authorize_resource :course, :subject
 
   def show
   end
