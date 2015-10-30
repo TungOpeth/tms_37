@@ -32,3 +32,7 @@ en:
   remove: "remove"
   Add_Tasks: "Add Tasks"
   login: "login"
+  course_create: "Course created!"
+  course_update: "Course updated"
+  course_delete: "Course deleted"
+  View: "View"

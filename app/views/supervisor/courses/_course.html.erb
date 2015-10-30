@@ -1,0 +1,13 @@
+<li id="<%= course.id %>">
+  <span class="user"><b><%= course.name %></b></span>
+  <span class="user"><%= course.instruction %></span>
+  <span class="user"><%= I18n.l course.start_date %></span>
+  <span class="user"><%= I18n.l course.end_date %></span>
+  <span>
+      <%= link_to (t :View), supervisor_course_path(course) %>
+  </span>
+  <span>
+      <%= link_to (t :delete), supervisor_course_path(course), method: :delete,
+                                       data: { confirm: (t :you_sure) } %>
+  </span>
+</li>

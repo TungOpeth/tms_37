@@ -1,0 +1,9 @@
+<% provide(:title, 'All courses') %>
+<h1>All courses(<%= @courses.count %>)</h1>
+<div class="row">
+      <ol class="users">
+        <%= render @courses %>
+      </ol>
+      <%= will_paginate @courses %>
+  </div>
+</div>
