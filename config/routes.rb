@@ -19,6 +19,5 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  get   'users/:id' => 'users#show', as: 'user'
-  get   'users'  => 'users#index'
+  resources :users
 end
