@@ -1,21 +1,3 @@
 <% provide(:title, 'Home') %>
 <h1>Framgia TMS</h1>
-<h1>Your courses(<%= @courses.count %>)</h1>
-<div class="row">
-      <ol class="users">
-        <% @courses.each do |c| %>
-          <li id="<%= c.id %>">
-            <span class="user"><b><%= c.name %></b></span>
-            <span class="user"><%= c.instruction %></span>
-            <span class="user"><%= I18n.l c.start_date %></span>
-            <span class="user"><%= I18n.l c.end_date %></span>
-            <span>
-                <%= link_to (t :View), course_path(c.id) %>
-            </span>
-          </li>
 
-        <% end %>
-      </ol>
-      <%= will_paginate @courses %>
-  </div>
-</div>
