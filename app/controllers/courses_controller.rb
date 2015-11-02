@@ -1,12 +1,11 @@
 class CoursesController < ApplicationController
-  before_action :init_course, only: :show
-  load_and_authorize_resource :course
-
-  def show
+  def index
+    @courses = Course.paginate page: params[:page]
   end
-
-  private
-  def init_course
+  def show
     @course = Course.find params[:id]
+    @course_subjects = @course.course_subjects
+    @subjects = []
+
   end
 end

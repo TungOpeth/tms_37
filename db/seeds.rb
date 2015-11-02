@@ -11,7 +11,8 @@ User.create!(name:  "Example User",
   User.create!(name:  name,
                email: email,
                password:              password,
-               password_confirmation: password)
+               password_confirmation: password,
+               supervisor: false)
 end
 
 50.times do |n|
@@ -32,5 +33,19 @@ end
   name  = Faker::Lorem.sentence 5
   instruction = Faker::Lorem.sentence 20
   Course.create(name: name,
-                 instruction: instruction)
+                 instruction: instruction,
+                 start_date: "11/11/2011",
+                 end_date: "11/11/2015")
+end
+19.times do |n|
+  n+=1
+  CourseSubject.create(course_id: n,
+                 subject_id: n)
+end
+19.times do |n|
+  n+=1
+  UserSubject.create(user_id: 1,
+                 course_subject_id: n,
+                 start_date: "11/11/2011",
+                 end_date: "11/11/2015")
 end

@@ -20,7 +20,7 @@
         <%= f.fields_for :course_subjects do |cs| %>
           <li>
             <%= cs.label :subject_id, cs.object.subject.name %>
-            <%= cs.check_box :subject_id, {checked: false}, cs.object.subject.try(:id) %>
+            <%= cs.check_box :subject_id, {checked: false}, cs.object.subject.try(:id), nil%>
           </li>
         <% end%>
       </div>

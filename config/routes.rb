@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
 
   resources :subjects, only: [:index, :show]
+  resources :courses, only: [:index, :show]
+
   namespace :supervisor do
     resources :courses
     resources :subjects
