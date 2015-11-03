@@ -7,7 +7,7 @@
   <span>
       <% @course.course_subjects.each do |course_subject| %>
       <%= course_subject.subject.name %>
-      <%= link_to (t :View), subject_path(course_subject.subject.id) %></br>
+      <%= link_to (t :View), course_subject_path(course_subject.course.id,                                course_subject.subject.id) %></br>
       <% end %>
   </span>
 </div>

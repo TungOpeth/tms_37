@@ -22,11 +22,11 @@ end
                  instruction: instruction)
 end
 
-100.times do |n|
+5.times do |n|
   name = Faker::Lorem.sentence 5
-  subject = Subject.all[(0..30).to_a.shuffle.first]
-  Task.create(name: name,
-  						subject: subject)
+  Subject.all.each do |s|
+    s.tasks.create(name: name)
+  end
 end
 
 20.times do |n|
@@ -49,3 +49,14 @@ end
                  start_date: "11/11/2011",
                  end_date: "11/11/2015")
 end
+ UserTask.create(user_id: 1,
+                  task_id: 1,
+                  course_subject_id: 1,
+                  user_subject_id: 1,
+                  status: "Active")
+
+ UserTask.create(user_id: 1,
+                  task_id: 51,
+                  course_subject_id: 1,
+                  user_subject_id: 1,
+                  status: "Active")

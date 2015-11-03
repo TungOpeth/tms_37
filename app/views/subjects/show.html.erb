@@ -7,8 +7,18 @@
 </h2>
 
 Task belong
+<%= form_for @user_subject, url: course_subject_path do |f| %>
 <h2>
-  <% @tasks.each do |task| %>
-    <%= task.name %> </br>
-  <% end %>
+  <ol style="font-weight: bold; color: green;">
+  <%= f.fields_for :user_tasks, @user_subject.user_tasks do |builder| %>
+    <li>
+      <%= builder.check_box :status, {}, UserTask::ACTIVATE, UserTask::DEACTIVATED %>
+      <%= builder.object.task.name %>
+      <%= builder.object.status %>
+    </li>
+    <% end %>
+    </ol>
 </h2>
+        <%= f.submit (t :Save), class: "btn btn-primary" %>
+<% end %>
+
