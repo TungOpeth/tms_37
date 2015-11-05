@@ -9,9 +9,13 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
 
-  resources :subjects, only: [:index, :show]
-  resources :courses, only: [:index, :show]
 
+  resources :courses, only: [:index, :show] do
+    resources :subjects, only: [:index, :show, :update]
+  end
+  resources :tasks
+  resources :user_tasks
+  resources :user_subjects
   namespace :supervisor do
     resources :courses
     resources :subjects
