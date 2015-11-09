@@ -1,0 +1,17 @@
+<% provide(:title, @course.name) %>
+<h1>
+  <%= @course.name %> </br>
+</h1>
+
+Assignees
+<%= form_for @course, url: supervisor_course_assignees_path(@course) do |f| %>
+<ul>
+  <% @users.each do |user| %>
+  <li>
+    <%= f.check_box :user_ids, {name: "course[user_ids][]"}, user.id, nil %>
+    <%= user.name%>
+  </li>
+  <% end %>
+</ul>
+<%= f.submit (t :Save), class: "btn btn-primary" %>
+  <% end %>

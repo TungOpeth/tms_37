@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 20151029020953) do
   create_table "courses", force: :cascade do |t|
     t.string   "name"
     t.text     "instruction"
+    t.text     "status"
     t.date     "start_date"
     t.date     "end_date"
     t.datetime "created_at",  null: false

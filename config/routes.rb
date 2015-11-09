@@ -13,11 +13,10 @@ Rails.application.routes.draw do
   resources :courses, only: [:index, :show] do
     resources :subjects, only: [:index, :show, :update]
   end
-  resources :tasks
-  resources :user_tasks
-  resources :user_subjects
   namespace :supervisor do
-    resources :courses
+    resources :courses do
+      resource :assignees, only: [:show, :update]
+    end
     resources :subjects
   end
   resources :subjects, only: [:index, :show]

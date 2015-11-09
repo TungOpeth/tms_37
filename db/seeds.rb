@@ -34,6 +34,7 @@ end
   instruction = Faker::Lorem.sentence 20
   Course.create(name: name,
                  instruction: instruction,
+                 status: "Not Started",
                  start_date: "11/11/2011",
                  end_date: "11/11/2015")
 end
@@ -53,10 +54,25 @@ end
                   task_id: 1,
                   course_subject_id: 1,
                   user_subject_id: 1,
-                  status: "Active")
+                  status: "Activate")
 
  UserTask.create(user_id: 1,
                   task_id: 51,
                   course_subject_id: 1,
                   user_subject_id: 1,
-                  status: "Active")
+                  status: "Activate")
+  UserTask.create(user_id: 1,
+                  task_id: 101,
+                  course_subject_id: 1,
+                  user_subject_id: 1,
+                  status: "Activate")
+   UserTask.create(user_id: 1,
+                  task_id: 151,
+                  course_subject_id: 1,
+                  user_subject_id: 1,
+                  status: "Activate")
+    UserTask.create(user_id: 1,
+                  task_id: 201,
+                  course_subject_id: 1,
+                  user_subject_id: 1,
+                  status: "Activate")

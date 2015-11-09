@@ -38,11 +38,14 @@ class Supervisor::CoursesController < ApplicationController
 
   def update
     @course = Course.find params[:id]
-    if @course.update_attributes course_params
-      flash[:success] = t :course_update
+    if params[:method] == "start_course"
+      @course.update_attributes status: Course::STARTED
+      flash[:success] = t :course_start
       redirect_to supervisor_courses_path
     else
-      render :edit
+      @course.update_attributes course_params
+      flash[:success] = t :course_update
+      redirect_to supervisor_courses_path
     end
   end
 

@@ -2,13 +2,28 @@
 <h1>
   <%= @course.name %> </br>
 </h1>
-<h2>
-  <%= @course.instruction %> </br>
-</h2>
 
-Subjects
-<h2>
-<% @course.course_subjects.each do |course_subject| %>
-<%= course_subject.subject.name %></br>
-<% end %>
-</h2>
+<h2>Subjects</h2>
+<ol>
+  <% @course.course_subjects.each do |course_subject| %>
+    <li>
+      <%= course_subject.subject.name %>
+      <ul>
+        <% course_subject.subject.tasks.each do |task| %>
+          <li>
+            <%= task.name %>
+          </li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ol>
+<h2>Assignees</h2>
+<ul>
+  <% @course.users.each do |user| %>
+  <li>
+    <%= user.name%>
+  </li>
+  <% end %>
+  <%= button_to (t :Start), supervisor_course_path(@course, method: "start_course"),method: :patch, class: "btn btn-primary" %>
+</ul>

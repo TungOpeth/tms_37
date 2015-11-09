@@ -5,15 +5,17 @@ class Supervisor::SubjectsController < ApplicationController
   end
 
   def show
+    @users = User.all
     @subject = Subject.find params[:id]
     @tasks = @subject.tasks
+    @course_subject = CourseSubject.find_by course_id: params[:course_id], subject_id: params[:id]
   end
 
   def new
   end
 
   def create
-    @subject = Subject.new subject_params 
+    @subject = Subject.new subject_params
     if @subject.save
       flash[:success] = t :create_subject_success
       redirect_to supervisor_subjects_path
@@ -29,9 +31,9 @@ class Supervisor::SubjectsController < ApplicationController
   end
 
   def update
-    if @user_subject.update user_subject_params
+    if @subject.update user_subject_params
       flash[:success] = t "views.messages.update_successfully"
-      redirect_to [@course, @user_subject.subject]
+      redirect_to supervisor_course_subject_path
     else
       flash[:danger] = t "views.messages.failed"
       render :show
@@ -52,14 +54,8 @@ class Supervisor::SubjectsController < ApplicationController
       @course_subject = CourseSubject.find_by course_id: params[:course_id],
         subject_id: params[:id]
     end
-
     def user_subject_params
       params.require(:user_subject).permit user_tasks_attributes: [:id, :finished]
     end
-
-    def subject_params
-      params.require(:subject).permit(:name,
-                            :instruction,
-                            tasks_attributes: [:name])
     end
 end

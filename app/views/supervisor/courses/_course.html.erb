@@ -10,4 +10,7 @@
       <%= link_to (t :delete), supervisor_course_path(course), method: :delete,
                                        data: { confirm: (t :you_sure) } %>
   </span>
+  <span>
+    <%= link_to (t :AddUser), supervisor_course_assignees_path(course.id) %>
+  </span>
 </li>
